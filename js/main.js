@@ -58,18 +58,14 @@ let playIntroClicks = [];
 
 let proceed = document.getElementById('proceed');
 
-
-
-
 // - - - - - - - Event Listeners - - - - - - -
 
 document.getElementById('play-button').addEventListener('click', playSong)
 
-
 // - - - - - - - - Functions - - - - - - - - -
 
 
-//plays loaded song for 5 seconds
+//plays loaded song for 5 seconds.
 function playSong(){
     if (preventMultiListen(playIntroClicks)) return;
     let song = currentSong;
@@ -83,7 +79,7 @@ function playSong(){
     })
 };
 
-//selects a song at random from array
+//selects a song at random from array.
 function randomSongSelect(arr){
     console.log("clicked")
     let randomSong = arr[Math.floor(Math.random() * songs.length)];
@@ -93,18 +89,34 @@ function randomSongSelect(arr){
     currentSong = randomSong;
 };
 
-//loads random song onto player
+//loads random song onto player.
 proceed.addEventListener('click', function(){
    playIntroClicks = [];
    randomSongSelect(songs);
    console.log(currentSong)
 });
 
+//prevents user from listening to each intro more than 3 times.
 function preventMultiListen(arr){
     if(arr >= 3){
         return true;
     } else {
+        console.log(playIntroClicks)
         playIntroClicks++
         return false
     }
 };
+
+//write function that displays list of wrong artist choices
+
+function createGuessButtons(arr){
+    if(current)
+    for(var i = 0; i < arr.length; i += 1) {
+        var div = document.createElement('button');
+        // div.className = "finalBlock";
+        div.innerHTML = arr[i];
+        document.body.appendChild(ul);
+};  
+
+
+//write checkGuess function that displays message correct/incorrect and increments the score
