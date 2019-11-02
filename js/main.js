@@ -52,6 +52,8 @@ let usedSongs = [];
 
 let currentSong;
 
+let playIntroClicks = [];
+
 // - - - - - - - Cached Elements - - - - - - -
 
 let proceed = document.getElementById('proceed');
@@ -69,6 +71,7 @@ document.getElementById('play-button').addEventListener('click', playSong)
 
 //plays loaded song for 5 seconds
 function playSong(){
+    if (preventMultiListen(playIntroClicks)) return;
     let song = currentSong;
     player.src = song;
     player.currentTime = 0; 
@@ -92,6 +95,16 @@ function randomSongSelect(arr){
 
 //loads random song onto player
 proceed.addEventListener('click', function(){
+   playIntroClicks = [];
    randomSongSelect(songs);
    console.log(currentSong)
 });
+
+function preventMultiListen(arr){
+    if(arr >= 3){
+        return true;
+    } else {
+        playIntroClicks++
+        return false
+    }
+};
