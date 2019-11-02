@@ -1,17 +1,17 @@
 // - - - - - - - const Variables - - - - - - -
 // matches up with artist arr and choies arr
 const songs = [
-     "assests/songs/Alanis_Morissette-Hand_In_My_Pocket.mp3",
-     "assests/songs/Bill_Withers-Lovely_Day.mp3",
-     "assests/songs/Blink-182-All_The_Small_Things.mp3",
-     "assests/songs/Bryan_Adams-Summer_Of_'69.mp3",
-     "assests/songs/Coldplay-Yellow.mp3",
-     "assests/songs/Jackson_5-I_Want_You_Back.mp3",
-     "assests/songs/Led_Zeppelin-When_the_Levee_Breaks.mp3",
-     "assests/songs/Oasis-Champagne_Supernova.mp3",
-     "assests/songs/Phil_Collins-In_the_Air_Tonight.mp3",
-     "assests/songs/Queen-Fat_Bottomed_Girls.mp3",
-     "assests/songs/Spice_Girls-Wannabe.mp3" 
+     'assests/songs/Alanis_Morissette-Hand_In_My_Pocket.mp3',
+     'assests/songs/Bill_Withers-Lovely_Day.mp3',
+     'assests/songs/Blink-182-All_The_Small_Things.mp3',
+     'assests/songs/Bryan_Adams-Summer_Of_69.mp3',
+     'assests/songs/Coldplay-Yellow.mp3',
+     'assests/songs/Jackson_5-I_Want_You_Back.mp3',
+     'assests/songs/Led_Zeppelin-When_the_Levee_Breaks.mp3',
+     'assests/songs/Oasis-Champagne_Supernova.mp3',
+     'assests/songs/Phil_Collins-In_the_Air_Tonight.mp3',
+     'assests/songs/Queen-Fat_Bottomed_Girls.mp3',
+     'assests/songs/Spice_Girls-Wannabe.mp3' 
 ];
 
 const correctGuesses = [
@@ -50,9 +50,11 @@ let score = 0;
 
 let usedSongs = [];
 
+let currentSong;
 
 // - - - - - - - Cached Elements - - - - - - -
 
+let proceed = document.getElementById('proceed');
 
 
 
@@ -62,13 +64,12 @@ let usedSongs = [];
 document.getElementById('play-button').addEventListener('click', playSong)
 
 
-
 // - - - - - - - - Functions - - - - - - - - -
 
 
-
+//plays loaded song for 5 seconds
 function playSong(){
-    let song = randomizeSongs(songs);
+    let song = currentSong;
     player.src = song;
     player.currentTime = 0; 
     player.play(song); 
@@ -77,17 +78,20 @@ function playSong(){
             player.pause();
         }
     })
-    console.log(usedSongs)
 };
 
-function randomizeSongs(arr){
+//selects a song at random from array
+function randomSongSelect(arr){
+    console.log("clicked")
     let randomSong = arr[Math.floor(Math.random() * songs.length)];
     let i = arr.indexOf(randomSong);
     arr.splice(i, 1);
     usedSongs.push(i)
-    return randomSong;
+    currentSong = randomSong;
 };
 
-// function proceed(){
-
-// }
+//loads random song onto player
+proceed.addEventListener('click', function(){
+   randomSongSelect(songs);
+   console.log(currentSong)
+});
