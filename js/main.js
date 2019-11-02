@@ -1,5 +1,4 @@
 // - - - - - - - const Variables - - - - - - -
-// matches up with artist arr and choies arr
 const songs = [
      'assests/songs/Alanis_Morissette-Hand_In_My_Pocket.mp3',
      'assests/songs/Bill_Withers-Lovely_Day.mp3',
@@ -48,9 +47,9 @@ const player = new Audio();
 
 let score = 0;
 
-let usedSongs = [];
+// let usedSongs = [];
 
-let currentSong;
+let currentSong, songsIdx;
 
 let playIntroClicks = [];
 
@@ -78,14 +77,15 @@ function playSong(){
         }
     })
 };
+console.log(songsIdx);
 
-//selects a song at random from array.
+//selects a song at random from 'songs' array.
 function randomSongSelect(arr){
     console.log("clicked")
     let randomSong = arr[Math.floor(Math.random() * songs.length)];
-    let i = arr.indexOf(randomSong);
-    arr.splice(i, 1);
-    usedSongs.push(i)
+    songsIdx = arr.indexOf(randomSong);
+    arr.splice(songsIdx, 1);
+    // usedSongs.push(songsIdx)
     currentSong = randomSong;
 };
 
@@ -93,7 +93,7 @@ function randomSongSelect(arr){
 proceed.addEventListener('click', function(){
    playIntroClicks = [];
    randomSongSelect(songs);
-   console.log(currentSong)
+   createGuessButtons(correctGuesses,wrongGuesses);
 });
 
 //prevents user from listening to each intro more than 3 times.
@@ -101,21 +101,26 @@ function preventMultiListen(arr){
     if(arr >= 3){
         return true;
     } else {
-        console.log(playIntroClicks)
         playIntroClicks++
         return false
     }
 };
-
 //write function that displays list of wrong artist choices
 
 function createGuessButtons(arr){
-    if(current)
-    for(var i = 0; i < arr.length; i += 1) {
-        var div = document.createElement('button');
-        // div.className = "finalBlock";
-        div.innerHTML = arr[i];
-        document.body.appendChild(ul);
+    let i = songsIdx;
+    let listArea = document.getElementById('list-area')
+    let correctGuessButton = document.createElement('button')
+    correctGuessButton.innerHTML = arr[i];
+    listArea.appendChild(correctGuessButton);
+
+
+    // for(var i = 0; i < arr.length; i += 1) {
+    //     var correctGuessButton = document.createElement('button');
+    //     correctGuessButton.innerHTML = arr[i];
+    //     document.body.appendChild(ul);
+    // }
+ 
 };  
 
 
