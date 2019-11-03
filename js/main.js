@@ -49,7 +49,7 @@ let score = 0;
 
 // let usedSongs = [];
 
-let currentSong, randomSong, songsIdx, correctGuessButton;
+let currentSong, randomSong, songsIdx, correctGuessButton; 
 
 let playIntroClicks = [];
 
@@ -77,6 +77,7 @@ function playSong(){
             player.pause();
         }
     })
+    checkGuess();
 };
 
 //selects a song at random from 'songs' array.
@@ -104,24 +105,34 @@ function preventMultiListen(arr){
 };
 //write function that displays list of artist choices
 
-function createGuessButtons(arr){
+function createGuessButtons(arrCorrect, arrWrong){
+    //correct choice button creation
     let listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
-    let i = songsIdx;
     correctGuessButton = document.createElement('button')
-    correctGuessButton.innerHTML = arr[i];
+    correctGuessButton.innerHTML = arrCorrect[songsIdx];
     listArea.appendChild(correctGuessButton);
-    arr.splice(songsIdx, 1);
-
-
-
-    // for(var i = 0; i < arr.length; i += 1) {
-    //     var correctGuessButton = document.createElement('button');
-    //     correctGuessButton.innerHTML = arr[i];
-    //     document.body.appendChild(ul);
-    // }
+    arrCorrect.splice(songsIdx, 1);
+    createWrongGuessButtons(arrWrong)
+    
+    //wrong choice button creation
+    function createWrongGuessButtons(arrWrong){
+    let wrongChoices = [];
+    wrongChoices.push(arrWrong[songsIdx])
+    for(var i = 0; i < wrongChoices.length; i ++) {
+        // console.log(wrongChoices[i])
+        let wrongGuessButton = document.createElement('button');
+        wrongGuessButton.innerHTML = wrongChoices[i];
+        listArea.appendChild(wrongGuessButton);
+         }
+    }
  
 };  
 
-
 //write checkGuess function that displays message correct/incorrect and increments the score
+
+function checkGuess(){
+    correctGuessButton.addEventListener('click', function(){
+        alert('correct answer!')
+    })
+}
