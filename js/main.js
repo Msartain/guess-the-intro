@@ -56,7 +56,7 @@ let playIntroClicks = [];
 // - - - - - - - Cached Elements - - - - - - -
 
 let proceed = document.getElementById('proceed');
-
+let scoreBox = document.querySelector('h3');
 // - - - - - - - Event Listeners - - - - - - -
 
 document.getElementById('play-button').addEventListener('click', playSong)
@@ -134,7 +134,8 @@ function createGuessButtons(arrCorrect, arrWrong){
 function checkGuess(){
     correctGuessButton.addEventListener('click', function(){
         score++
-        console.log(score);
+        scoreBox.innerHTML =`<h2>Score:${score}</h2>`;
+        console.log('score: ' + score);
         alert('correct answer!')
     })
 }
