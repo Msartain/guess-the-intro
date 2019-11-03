@@ -49,7 +49,7 @@ let score = 0;
 
 // let usedSongs = [];
 
-let currentSong, randomSong, songsIdx;
+let currentSong, randomSong, songsIdx, correctGuessButton;
 
 let playIntroClicks = [];
 
@@ -88,7 +88,6 @@ function randomSongSelect(arrSongs){
 
 //loads random song onto player.
 proceed.addEventListener('click', function(){
-    
     playIntroClicks = [];
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
@@ -106,9 +105,10 @@ function preventMultiListen(arr){
 //write function that displays list of artist choices
 
 function createGuessButtons(arr){
-    let i = songsIdx;
     let listArea = document.getElementById('list-area')
-    let correctGuessButton = document.createElement('button')
+    listArea.innerHTML = '';
+    let i = songsIdx;
+    correctGuessButton = document.createElement('button')
     correctGuessButton.innerHTML = arr[i];
     listArea.appendChild(correctGuessButton);
     arr.splice(songsIdx, 1);
