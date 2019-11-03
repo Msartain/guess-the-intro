@@ -133,6 +133,8 @@ function createGuessButtons(arrCorrect, arrWrong){
 
 function checkGuess(){
     correctGuessButton.addEventListener('click', function(){
+        score++
+        console.log(score);
         alert('correct answer!')
     })
 }
