@@ -49,7 +49,7 @@ let score = 0;
 
 // let usedSongs = [];
 
-let currentSong, songsIdx;
+let currentSong, randomSong, songsIdx;
 
 let playIntroClicks = [];
 
@@ -66,6 +66,7 @@ document.getElementById('play-button').addEventListener('click', playSong)
 
 //plays loaded song for 5 seconds.
 function playSong(){
+    currentSong = randomSong;
     if (preventMultiListen(playIntroClicks)) return;
     let song = currentSong;
     player.src = song;
@@ -77,23 +78,20 @@ function playSong(){
         }
     })
 };
-console.log(songsIdx);
 
 //selects a song at random from 'songs' array.
-function randomSongSelect(arr){
-    console.log("clicked")
-    let randomSong = arr[Math.floor(Math.random() * songs.length)];
-    songsIdx = arr.indexOf(randomSong);
-    arr.splice(songsIdx, 1);
-    // usedSongs.push(songsIdx)
-    currentSong = randomSong;
+function randomSongSelect(arrSongs){
+    randomSong = arrSongs[Math.floor(Math.random() * songs.length)];
+    songsIdx = arrSongs.indexOf(randomSong);
+    arrSongs.splice(songsIdx, 1);
 };
 
 //loads random song onto player.
 proceed.addEventListener('click', function(){
-   playIntroClicks = [];
-   randomSongSelect(songs);
-   createGuessButtons(correctGuesses,wrongGuesses);
+    
+    playIntroClicks = [];
+    randomSongSelect(songs, correctGuesses);
+    createGuessButtons(correctGuesses,wrongGuesses);
 });
 
 //prevents user from listening to each intro more than 3 times.
@@ -105,7 +103,7 @@ function preventMultiListen(arr){
         return false
     }
 };
-//write function that displays list of wrong artist choices
+//write function that displays list of artist choices
 
 function createGuessButtons(arr){
     let i = songsIdx;
@@ -113,6 +111,8 @@ function createGuessButtons(arr){
     let correctGuessButton = document.createElement('button')
     correctGuessButton.innerHTML = arr[i];
     listArea.appendChild(correctGuessButton);
+    arr.splice(songsIdx, 1);
+
 
 
     // for(var i = 0; i < arr.length; i += 1) {
