@@ -106,6 +106,7 @@ function preventMultiListen(arr){
 //write function that displays list of artist choices
 
 function createGuessButtons(arrCorrect, arrWrong){
+    let buttons = [];
     if(endOfGame(songs, correctGuesses, wrongGuesses))return;
     //correct choice button creation
     let listArea = document.getElementById('list-area')
@@ -113,9 +114,10 @@ function createGuessButtons(arrCorrect, arrWrong){
     correctGuessButton = document.createElement('button')
     correctGuessButton.addEventListener('click', checkCorrectGuess);
     correctGuessButton.innerHTML = arrCorrect[songsIdx];
-    listArea.appendChild(correctGuessButton);
+    buttons.push(correctGuessButton);
     arrCorrect.splice(songsIdx, 1);
     createWrongGuessButtons(arrWrong)
+    
     //wrong choice button creation
     function createWrongGuessButtons(arrWrong){
         let wrongChoices = [];
@@ -125,28 +127,34 @@ function createGuessButtons(arrCorrect, arrWrong){
             wrongGuessButtons.classList.add = ('wrong');
             wrongGuessButtons.addEventListener('click', checkIncorrectGuess);
             wrongGuessButtons.innerHTML = wrongChoices[i];
-            listArea.appendChild(wrongGuessButtons);
+            buttons.push(wrongGuessButtons);
             }
     arrWrong.splice(songsIdx, 1);     
     }
+    buttons = buttons.sort(function(a,b){return 0.5 - Math.random() })
+    // listArea.appendChild(buttons);
+    buttons.forEach(function(button){
+        listArea.appendChild(button);
+    })
 };  
 
 //write checkGuess function that displays message correct/incorrect and increments the score
 
-function checkCorrectGuess(){
+function checkCorrectGuess(evt){
+    // console.log(evt)
+        correctGuessButton.style.backgroundColor = 'green';
         score++
-        scoreBox.innerHTML =`<h2>Score:${score}</h2>`;
-        console.log('score: ' + score);
+        scoreBox.innerHTML =`<h5>Score:${score}</h5>`;
         alert('correct answer!')
 };
 
 function checkIncorrectGuess(){
+    wrongGuessButtons.style.backgroundColor = 'red'
     alert('wrong answer');
 };
 
 function endOfGame(arr1, arr2, arr3){
     if(arr1.length === 0 && arr2.length === 0 && arr3.length === 0){
-        console.log("test")
         alert("end of game")
         return true
     } else{

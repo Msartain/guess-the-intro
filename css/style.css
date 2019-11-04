@@ -6,7 +6,6 @@
 body {
     margin: 0;
     height: 100vh;
-    background-color: #2D2D2D;
 }
 
 .container{
@@ -15,18 +14,19 @@ body {
     align-items: center;
 }
 
-h1 {
-    background-color: royalblue;
-    font-size: 400%;
-    width: 50%;
-    text-align: center;
+
+img {
+    width: 25%;
 }
 
 #score {
+    justify-content: flex-end;
+    align-items: ;
     color: black;
     background-color: yellow;
-    font-size: 300%;
-    width: 15%;
+    font-size: 200%;
+    width: 30%;
+    height: 30%;
 }
 
 #proceed {
@@ -46,7 +46,9 @@ h1 {
 }
 
 .guessbuttons {
-    height: 400px;
+    height: 250px;
     background-color: seagreen;
     width: 100vh;
 }
+
+
