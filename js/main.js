@@ -92,6 +92,7 @@ proceed.addEventListener('click', function(){
     playIntroClicks = [];
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
+
 });
 
 //prevents user from listening to each intro more than 3 times.
@@ -106,6 +107,7 @@ function preventMultiListen(arr){
 //write function that displays list of artist choices
 
 function createGuessButtons(arrCorrect, arrWrong){
+    if(endOfGame(songs, correctGuesses, wrongGuesses))return;
     //correct choice button creation
     let listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
@@ -120,7 +122,6 @@ function createGuessButtons(arrCorrect, arrWrong){
     function createWrongGuessButtons(arrWrong){
     let wrongChoices = [];
     wrongChoices.push(...arrWrong[songsIdx])
-    console.log(wrongChoices)
     for(var i = 0; i < wrongChoices.length; i ++) {
         let wrongGuessButtons = document.createElement('button');
         wrongGuessButtons.innerHTML = wrongChoices[i];
@@ -128,7 +129,6 @@ function createGuessButtons(arrCorrect, arrWrong){
         }
     arrWrong.splice(songsIdx, 1);     
     }
-
 };  
 
 //write checkGuess function that displays message correct/incorrect and increments the score
@@ -142,16 +142,20 @@ function checkGuess(){
     })
 }
 
+function endOfGame(arr1, arr2, arr3){
+    if(arr1.length === 0 && arr2.length === 0 && arr3.length === 0){
+        console.log("test")
+        alert("end of game")
+        return true
+    } else{
+        return false;
+    }
+}
 
 
 //Bugs to fix: 
 //1. Recurring alert message and score increment after 3rd play
 //2. Play Intro button still works if clicked after correct guess
+//3. end game
 
-// document.getElementById('list-area').innerHTML += '<button>' + wrongChoices[i] + '<button>';
-        //  }
-
-// let wrongGuessButtons = document.createElement('button');
-// wrongGuessButtons.innerHTML += wrongChoices[i];
-// listArea.appendChild(wrongGuessButtons);
  
