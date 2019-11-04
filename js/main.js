@@ -59,7 +59,7 @@ let proceed = document.getElementById('proceed');
 let scoreBox = document.querySelector('h3');
 // - - - - - - - Event Listeners - - - - - - -
 
-document.getElementById('play-button').addEventListener('click', playSong)
+document.getElementById('play-button').addEventListener('click', playSong);
 
 // - - - - - - - - Functions - - - - - - - - -
 
@@ -110,6 +110,7 @@ function createGuessButtons(arrCorrect, arrWrong){
     let listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
     correctGuessButton = document.createElement('button')
+    correctGuessButton.classList.add = ('correct');
     correctGuessButton.innerHTML = arrCorrect[songsIdx];
     listArea.appendChild(correctGuessButton);
     arrCorrect.splice(songsIdx, 1);
@@ -120,13 +121,13 @@ function createGuessButtons(arrCorrect, arrWrong){
     let wrongChoices = [];
     wrongChoices.push(arrWrong[songsIdx])
     for(var i = 0; i < wrongChoices.length; i ++) {
-        // console.log(wrongChoices[i])
-        let wrongGuessButton = document.createElement('button');
-        wrongGuessButton.innerHTML = wrongChoices[i];
-        listArea.appendChild(wrongGuessButton);
+        let wrongGuessButtons = document.createElement('button');
+        wrongGuessButtons.innerHTML = wrongChoices[i];
+        listArea.appendChild(wrongGuessButtons);
          }
+    arrWrong.splice(songsIdx, 1);     
     }
- 
+
 };  
 
 //write checkGuess function that displays message correct/incorrect and increments the score
@@ -139,3 +140,9 @@ function checkGuess(){
         alert('correct answer!')
     })
 }
+
+
+
+//Bugs to fix: 
+//1. Recurring alert message and score increment after 3rd play
+//2. Play Intro button still works if clicked after correct guess
