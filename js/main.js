@@ -119,12 +119,13 @@ function createGuessButtons(arrCorrect, arrWrong){
     //wrong choice button creation
     function createWrongGuessButtons(arrWrong){
     let wrongChoices = [];
-    wrongChoices.push(arrWrong[songsIdx])
+    wrongChoices.push(...arrWrong[songsIdx])
+    console.log(wrongChoices)
     for(var i = 0; i < wrongChoices.length; i ++) {
         let wrongGuessButtons = document.createElement('button');
         wrongGuessButtons.innerHTML = wrongChoices[i];
         listArea.appendChild(wrongGuessButtons);
-         }
+        }
     arrWrong.splice(songsIdx, 1);     
     }
 
@@ -146,3 +147,11 @@ function checkGuess(){
 //Bugs to fix: 
 //1. Recurring alert message and score increment after 3rd play
 //2. Play Intro button still works if clicked after correct guess
+
+// document.getElementById('list-area').innerHTML += '<button>' + wrongChoices[i] + '<button>';
+        //  }
+
+// let wrongGuessButtons = document.createElement('button');
+// wrongGuessButtons.innerHTML += wrongChoices[i];
+// listArea.appendChild(wrongGuessButtons);
+ 
