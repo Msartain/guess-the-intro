@@ -146,7 +146,7 @@ function checkCorrectGuess(evt){
     // console.log(evt)
         correctGuessButton.style.backgroundColor = 'green';
         score++
-        scoreBox.innerHTML =`<h5>Score:${score}</h5>`;
+        scoreBox.innerText =`Score:${score}`;
         alert('correct answer!')
 };
 
