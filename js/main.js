@@ -111,7 +111,8 @@ function createGuessButtons(arrCorrect, arrWrong){
     //correct choice button creation
     let listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
-    correctGuessButton = document.createElement('button')
+    correctGuessButton = document.createElement('div')
+    correctGuessButton.className += 'button ';
     correctGuessButton.addEventListener('click', checkCorrectGuess);
     correctGuessButton.innerHTML = arrCorrect[songsIdx];
     buttons.push(correctGuessButton);
@@ -123,8 +124,9 @@ function createGuessButtons(arrCorrect, arrWrong){
         let wrongChoices = [];
         wrongChoices.push(...arrWrong[songsIdx])
         for(var i = 0; i < wrongChoices.length; i ++) {
-            wrongGuessButtons = document.createElement('button');
-            wrongGuessButtons.classList.add = ('wrong');
+            wrongGuessButtons = document.createElement('div');
+            wrongGuessButtons.className += 'button ';
+            wrongGuessButtons.className += 'wrong ';
             wrongGuessButtons.addEventListener('click', checkIncorrectGuess);
             wrongGuessButtons.innerHTML = wrongChoices[i];
             buttons.push(wrongGuessButtons);
