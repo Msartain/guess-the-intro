@@ -87,7 +87,7 @@ function randomSongSelect(arrSongs){
 //loads random song onto player.
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
-    playIntro.style.backgroundColor = 'red';
+    // playIntro.style.backgroundColor = 'red';
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
 
@@ -149,7 +149,6 @@ function checkCorrectGuess(evt){
 };
 
 function checkIncorrectGuess(){
-    wrongGuessButtons.style.backgroundColor = 'red'
     alert('wrong answer');
 };
 
@@ -164,8 +163,7 @@ function endOfGame(arr1, arr2, arr3){
 
 
 //Bugs to fix: 
-//1. Recurring alert message and score increment after 3rd play
-//2. Play Intro button still works if clicked after correct guess
-
+//1. Play Intro button still works if clicked after correct guess
+//2. play button greys out too late
 
  

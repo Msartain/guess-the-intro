@@ -8,41 +8,51 @@ body {
     height: 100vh;
 }
 
-.container{
+.container{ 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: url(https://images.unsplash.com/photo-1459233313842-cd392ee2c388?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 
-img {
-    width: 25%;
+h1 {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 10vh;
+    padding: 4%;
 }
 
 #score {
-    justify-content: flex-end;
-    align-items: ;
+    display: flex;
     color: black;
-    background-color: yellow;
-    font-size: 200%;
+    /* background-color: yellow; */
+    font-size: 400%;
     width: 30%;
     height: 30%;
+    font-family: 'Reenie Beanie', cursive;
 }
 
 #proceed {
     font-size: 200%;
-    background-color: red;
+    background-color: transparent;
     padding: 10px;
     border-radius: 15%; 
-    width: 10%;
+    border-color: black;
+    font-family: 'Reenie Beanie', cursive;
 }
 
 #play-button {
     display: flex;
     font-size: 200%;
-    background-color: red;
+    background-color: transparent;
     padding: 10px;
     border-radius: 15%; 
+    border-color: black;
+    font-family: 'Reenie Beanie', cursive;
+
 }
 
 .guessbuttons {
@@ -51,4 +61,9 @@ img {
     width: 100vh;
 }
 
-
+.renderbuttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
