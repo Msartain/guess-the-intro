@@ -80,7 +80,6 @@ playIntro.addEventListener('click', playSong);
 function playSong(){
     currentSong = randomSong;
     if (preventMultiListen(playIntroClicks)){
-        // playIntro.style.backgroundColor = 'red'; 
         return;
     }    
     let song = currentSong;
@@ -107,7 +106,6 @@ proceed.addEventListener('click', function(){
     playIntro.style.backgroundColor = 'transparent';
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
-
 });
 
 //prevents user from listening to each intro more than 3 times.
@@ -153,7 +151,6 @@ function createGuessButtons(arrCorrect, arrWrong){
     arrWrong.splice(songsIdx, 1);     
     }
     buttons = buttons.sort(function(a,b){return 0.5 - Math.random() })
-    // listArea.appendChild(buttons);
     buttons.forEach(function(button){
         listArea.appendChild(button);
     })
@@ -162,10 +159,15 @@ function createGuessButtons(arrCorrect, arrWrong){
 //write checkGuess function that displays message correct/incorrect and increments the score
 
 function checkCorrectGuess(evt){
-    // console.log(evt)
-        correctGuessButton.style.backgroundColor = 'green';
-        score++
-        scoreBox.innerText =`Score:${score}`;
+    correctGuessButton.style.backgroundColor = 'green';
+    score++
+    scoreBox.innerText =`Score:${score}`;
+    setTimeout(function(){
+        let messageFact = document.querySelector('ul');
+        messageFact.innerText = facts[songsIdx];
+        facts.splice(songsIdx, 1);
+    }, 1800);
+    
 };
 
 function checkIncorrectGuess(evt){
@@ -186,7 +188,6 @@ function init(){
     welcome.innerText = "\n\nWelcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button, followed by the Play Intro button to begin! Good Luck!";
     let playProceed = document.querySelector('.play-proceed')
     playProceed.classList.add('hide')
-    console.dir(playProceed)
     let startGame = document.getElementById('start-button');
     startGame.addEventListener('click', function(){
         playIntroClicks = [];
