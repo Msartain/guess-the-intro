@@ -36,7 +36,7 @@ const wrongGuesses = [
     ['The Sumpremes', 'Stevie Wonder', 'James Brown'],
     ['Pink Floyd', 'The Rolling Stones', 'Black Sabbath'],
     ['Blur', 'Arctic Monkeys', 'Radiohead'],
-    ['Sting', 'Eric Clapton', 'Elton Join'],
+    ['Sting', 'Eric Clapton', 'Elton John'],
     ['The Beatles', 'David Bowie', 'AC/DC'],
     ["Destiny's Child", 'Britney Spears', 'Christina Aguilera']
 ];        
@@ -104,6 +104,10 @@ function randomSongSelect(arrSongs){
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
     playIntro.style.backgroundColor = 'transparent';
+    if (endOfGame(songs)){
+        displayEndGameText();
+        return ;
+    }
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
 });
@@ -120,12 +124,10 @@ function preventMultiListen(arr){
         return false
     }
 };
-//write function that displays list of artist choices
 
 function createGuessButtons(arrCorrect, arrWrong){
     let buttons = [];
-    if(endOfGame(songs, correctGuesses, wrongGuesses))return;
-    //correct choice button creation
+    // if(endOfGame(songs))return;
     listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
     correctGuessButton = document.createElement('div')
@@ -136,7 +138,6 @@ function createGuessButtons(arrCorrect, arrWrong){
     arrCorrect.splice(songsIdx, 1);
     createWrongGuessButtons(arrWrong)
     
-    //wrong choice button creation
     function createWrongGuessButtons(arrWrong){
         let wrongChoices = [];
         wrongChoices.push(...arrWrong[songsIdx])
@@ -156,8 +157,6 @@ function createGuessButtons(arrCorrect, arrWrong){
     })
 };  
 
-//write checkGuess function that displays message correct/incorrect and increments the score
-
 function checkCorrectGuess(evt){
     correctGuessButton.style.backgroundColor = 'green';
     score++
@@ -173,18 +172,41 @@ function checkCorrectGuess(evt){
 function checkIncorrectGuess(evt){
     evt.target.style.backgroundColor = 'red';
     setTimeout(function(){
-        let messageFact = document.querySelector('ul');
-        messageFact.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
+        let message = document.querySelector('ul');
+        message.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
+        facts.splice(songsIdx, 1);
     }, 1200);
 };
 
-function endOfGame(arr1, arr2, arr3){
-    if(arr1.length === 0 && arr2.length === 0 && arr3.length === 0){
-        alert("end of game")
-        return true
-    } else{
-        return false;
+function endOfGame(arr1){
+     if(arr1.length === 0){
+      return true;
     }
+}
+
+function displayEndGameText(){
+    let playProceed = document.querySelector('.play-proceed')
+    playProceed.classList.add('hide')
+    // disable or remove the playsong and next song buttons
+    // create a reset button or display the rest button
+    // display the messages that corresponds to the score the user got
+    if(score >= 9){
+        let message = document.querySelector('ul');
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. You're a musical genius!`;
+       } else if(score >= 7){
+        let message = document.querySelector('ul');   
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. well done!`;
+       } else if(score >= 5){
+        let message = document.querySelector('ul');   
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. That's ok but you can do better!`;
+       } else if(score >= 3){
+        let message = document.querySelector('ul');   
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Come on! You must be able to do better than that!`;
+       } else if(score < 3){
+        let message = document.querySelector('ul');   
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Oh dear! Better luck next time.`;
+       } else
+        return;
 }
 
 function init(){
@@ -203,8 +225,3 @@ function init(){
 }
 
 init();
-//Bugs to fix: 
-//1. Play Intro button still works if clicked after correct guess
-//2. play button greys out too late
-
- 
