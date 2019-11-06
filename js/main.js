@@ -189,7 +189,6 @@ function displayEndGameText(){
     playProceed.classList.add('hide')
     // disable or remove the playsong and next song buttons
     // create a reset button or display the rest button
-    // display the messages that corresponds to the score the user got
     if(score >= 9){
         let message = document.querySelector('ul');
         message.innerText = `End of Game! \n\n Your score was ${score} out of 11. You're a musical genius!`;
@@ -202,11 +201,18 @@ function displayEndGameText(){
        } else if(score >= 3){
         let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Come on! You must be able to do better than that!`;
-       } else if(score < 3){
+       } else{
         let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Oh dear! Better luck next time.`;
-       } else
-        return;
+    } 
+    let startGame = document.getElementById('start-button');
+    startGame.classList.add('hide');
+    startGame.addEventListener('click', function(){
+        playIntroClicks = [];
+        randomSongSelect(songs, correctGuesses);
+        createGuessButtons(correctGuesses,wrongGuesses);
+        document.getElementById('start-game').remove();
+    })
 }
 
 function init(){
