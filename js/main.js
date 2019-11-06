@@ -179,7 +179,7 @@ function endOfGame(arr1, arr2, arr3){
 
 function init(){
     let welcome = document.querySelector('ul')
-    welcome.innerText = "Welcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n Hit the start button to begin! Good Luck!";
+    welcome.innerText = "Welcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button to begin! Good Luck!";
     let playProceed = document.querySelector('.play-proceed')
     playProceed.classList.add('hide')
     console.dir(playProceed)
