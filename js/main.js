@@ -79,7 +79,10 @@ playIntro.addEventListener('click', playSong);
 //plays loaded song for 5 seconds.
 function playSong(){
     currentSong = randomSong;
-    if (preventMultiListen(playIntroClicks)) return;
+    if (preventMultiListen(playIntroClicks)){
+        // playIntro.style.backgroundColor = 'red'; 
+        return;
+    }    
     let song = currentSong;
     player.src = song;
     player.currentTime = 0; 
@@ -101,7 +104,7 @@ function randomSongSelect(arrSongs){
 //loads random song onto player.
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
-    // playIntro.style.backgroundColor = 'red';
+    playIntro.style.backgroundColor = 'transparent';
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
 
@@ -109,8 +112,10 @@ proceed.addEventListener('click', function(){
 
 //prevents user from listening to each intro more than 3 times.
 function preventMultiListen(arr){
-    if(arr >= 2){
-        playIntro.style.backgroundColor = 'grey';
+    if (arr === 1){
+        playIntro.style.backgroundColor = 'red';
+    }
+    if(arr > 1){
         return true;
     } else {
         playIntroClicks++
@@ -161,11 +166,10 @@ function checkCorrectGuess(evt){
         correctGuessButton.style.backgroundColor = 'green';
         score++
         scoreBox.innerText =`Score:${score}`;
-        alert('correct answer!')
 };
 
-function checkIncorrectGuess(){
-    alert('wrong answer');
+function checkIncorrectGuess(evt){
+    evt.target.style.backgroundColor = 'red';
 };
 
 function endOfGame(arr1, arr2, arr3){
@@ -179,7 +183,7 @@ function endOfGame(arr1, arr2, arr3){
 
 function init(){
     let welcome = document.querySelector('ul')
-    welcome.innerText = "Welcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button to begin! Good Luck!";
+    welcome.innerText = "\n\nWelcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button, followed by the Play Intro button to begin! Good Luck!";
     let playProceed = document.querySelector('.play-proceed')
     playProceed.classList.add('hide')
     console.dir(playProceed)
