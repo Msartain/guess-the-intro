@@ -39,7 +39,21 @@ const wrongGuesses = [
     ['Sting', 'Eric Clapton', 'Elton Join'],
     ['The Beatles', 'David Bowie', 'AC/DC'],
     ["Destiny's Child", 'Britney Spears', 'Christina Aguilera']
-];               
+];        
+
+const facts = [
+    "Did you know: Alanis Morissette's 1999 tour was sponsored by MP3.com. She received company stock in the deal, which was worth millions before the Internet bubble burst a year later. She did sell $1.5 million worth of the stock before it collapsed.",
+    "Did you know: Near the end of the song, Withers holds a note for 18 seconds... 'Lovely Daaaaaaaaay.' ",
+    "Did you know: Blink-182 bass player Mark Hoppus met Skye Everly, the woman who would become his wife, on the shoot for this video.",
+    "Did you know: In the Summer of '69, Bryan was 9 years old. He said of the song: 'It's a very simple song about looking back on the summertime and making love. For me, the 69 was a metaphor for making love not about the year.' ",
+    "Did you know: The video was shot at a fast shutter speed to achieve the slow-motion. In order for Martin to sing along, he had to lip-sync to the song played at double speed.",
+    "Did you know: This was the first Jackson 5 single released by Motown Records. It launched their career and went to #1 in the US, as did their next three releases: 'ABC,' 'The Love You Save' and 'I'll Be There.' ",
+    "Did you know: The Drums for this iconic track were placed on the ground floor of a stairwell with the microphone hanging from the roof 3 stories up!",
+    "Did you know: Noel Gallagher got the title when he misheard the name of the Pixies album Bossanova. He was watching a documentary about champagne at the time.",
+    "Did you know: In 2014, Collins performed this at the Miami Country Day School in Miami, Florida, with his son's middle school band.",
+    "Did you know: Queen guitarist Brian May wrote this song, which is about a young man who comes to appreciate women of substantial girth. May told Mojo magazine October 2008: 'I wrote it with Fred in mind, as you do especially if you've got a great singer who likes fat bottomed girls… or boys.' ",
+    "Did you know: Worldwide, this is the best-selling single by an all-female group."
+]
 
 const player = new Audio();
 
@@ -162,6 +176,7 @@ function endOfGame(arr1, arr2, arr3){
         return false;
     }
 }
+
 
 
 //Bugs to fix: 
