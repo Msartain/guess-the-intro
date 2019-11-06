@@ -43,13 +43,46 @@ h1 {
 
 }
 
-#play-proceed{
+ul {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 5vh;
+}
+.play-proceed{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 20vh;
     width: 66%;
 }
+
+#start-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    width: 25%;
+    margin-left: 20%;
+
+}
+
+#start-button {
+    width: 50%;
+    height: 50%;
+    font-size: 200%;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 15%; 
+    border-color: black;
+    font-family: 'Reenie Beanie', cursive;
+}
+/* we can use this as a temporary class to toggle on and off */
+.hide { 
+    display : none
+}
+
+/* #play-proceed {
+    display: flex;
+} */
 
 .buttons {
     display: flex;
@@ -110,7 +143,7 @@ h1 {
 
 .button {
     background: #37586A;
-    opacity: 0.7;
+    opacity: 0.3;
     padding: 12.5px 25px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -130,6 +163,6 @@ h1 {
     }
  .button:hover {
     background: #28597a;
-    color: #ccc;
+    color: black;
     }
  

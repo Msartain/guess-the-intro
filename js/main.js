@@ -61,7 +61,7 @@ const player = new Audio();
 
 let score = 0;
 
-let currentSong, randomSong, songsIdx, wrongGuessButtons;
+let currentSong, randomSong, songsIdx, wrongGuessButtons, listArea;
 
 let playIntroClicks = [];
 
@@ -109,7 +109,7 @@ proceed.addEventListener('click', function(){
 
 //prevents user from listening to each intro more than 3 times.
 function preventMultiListen(arr){
-    if(arr >= 3){
+    if(arr >= 2){
         playIntro.style.backgroundColor = 'grey';
         return true;
     } else {
@@ -123,7 +123,7 @@ function createGuessButtons(arrCorrect, arrWrong){
     let buttons = [];
     if(endOfGame(songs, correctGuesses, wrongGuesses))return;
     //correct choice button creation
-    let listArea = document.getElementById('list-area')
+    listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
     correctGuessButton = document.createElement('div')
     correctGuessButton.className += 'button ';
@@ -177,8 +177,23 @@ function endOfGame(arr1, arr2, arr3){
     }
 }
 
+function init(){
+    let welcome = document.querySelector('ul')
+    welcome.innerText = "Welcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n Hit the start button to begin! Good Luck!";
+    let playProceed = document.querySelector('.play-proceed')
+    playProceed.classList.add('hide')
+    console.dir(playProceed)
+    let startGame = document.getElementById('start-button');
+    startGame.addEventListener('click', function(){
+        playIntroClicks = [];
+        randomSongSelect(songs, correctGuesses);
+        createGuessButtons(correctGuesses,wrongGuesses);
+        document.getElementById('start-game').remove();
+        playProceed.classList.remove('hide')
+    });
+}
 
-
+init();
 //Bugs to fix: 
 //1. Play Intro button still works if clicked after correct guess
 //2. play button greys out too late
