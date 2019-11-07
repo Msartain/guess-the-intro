@@ -20,8 +20,8 @@ const songs = [
      'assests/songs/The Police - Every Breath You Take.mp3',
      'assests/songs/The Rolling Stones - Paint It, Black.mp3',
      'assests/songs/Whitney Houston - I Wanna Dance With Somebody (Legendado).mp3',
-     'assests/songs/Bee Gees - Stayin Alive (1977).mp3'
-    ]
+     'assests/songs/Bee Gees - Stayin Alive .mp3'
+];
 
 const correctGuesses = [
     'Alanis Morissette',
@@ -231,19 +231,19 @@ function displayEndGameText(){
     // create a reset button or display the rest button
     if(score >= 9){
         let message = document.querySelector('ul');
-        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. You're a musical genius!`;
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 10. You're a musical genius!`;
        } else if(score >= 7){
         let message = document.querySelector('ul');   
-        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. well done!`;
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 10. well done!`;
        } else if(score >= 5){
         let message = document.querySelector('ul');   
-        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. That's ok but you can do better!`;
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 10. That's ok but you can do better!`;
        } else if(score >= 3){
         let message = document.querySelector('ul');   
-        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Come on! You must be able to do better than that!`;
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Come on! You must be able to do better than that!`;
        } else{
         let message = document.querySelector('ul');   
-        message.innerText = `End of Game! \n\n Your score was ${score} out of 11. Oh dear! Better luck next time.`;
+        message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Oh dear! Better luck next time.`;
     } 
     let startGame = document.getElementById('start-button');
     startGame.classList.add('hide');
