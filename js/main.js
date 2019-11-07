@@ -60,7 +60,7 @@ const wrongGuesses = [
     ['The Beatles', 'David Bowie', 'AC/DC'],
     ["Destiny's Child", 'Britney Spears', 'Christina Aguilera'],
     ['Radiohead', 'The Smiths', 'The Cure'],
-    ['P Diddy', 'Don Henley', 'The Beach Boys'],
+    ['Tupac', 'Don Henley', 'The Beach Boys'],
     ['The Rolling Stones', 'Matt Sartain', 'The Ramones'],
     ['Blur', 'D12', 'Franz Ferdinand'],
     ['New Order', 'Joy Division', 'Depeche Mode'],
@@ -74,26 +74,26 @@ const wrongGuesses = [
 const facts = [
     "Correct answer! \n\nDid you know: Alanis Morissette's 1999 tour was sponsored by MP3.com. She received company stock in the deal, which was worth millions before the Internet bubble burst a year later. She did sell $1.5 million worth of the stock before it collapsed.",
     "Correct answer! \n\nDid you know: Near the end of the song, Withers holds a note for 18 seconds... 'Lovely Daaaaaaaaay.' ",
-    "Correct answer! \n\nDid you know: Blink-182 bass player Mark Hoppus met Skye Everly, the woman who would become his wife, on the shoot for this video.",
+    "Correct answer! \n\nDid you know: Blink-182 bass player Mark Hoppus met his wife on the shoot for this songs' video.",
     "Correct answer! \n\nDid you know: In the Summer of '69, Bryan was 9 years old. He said of the song: 'It's a very simple song about looking back on the summertime and making love. For me, the 69 was a metaphor for making love not about the year.' ",
     "Correct answer! \n\nDid you know: The video was shot at a fast shutter speed to achieve the slow-motion. In order for Martin to sing along, he had to lip-sync to the song played at double speed.",
     "Correct answer! \n\nDid you know: This was the first Jackson 5 single released by Motown Records. It launched their career and went to #1 in the US, as did their next three releases: 'ABC,' 'The Love You Save' and 'I'll Be There.' ",
-    "Correct answer! \n\nDid you know: The Drums for this iconic track were placed on the ground floor of a stairwell with the microphone hanging from the roof 3 stories up!",
+    "Correct answer! \n\nDid you know: For the recording of this track the drums were placed on the ground floor of a stairwell with the microphone hanging from the roof 3 stories up in order to capture the natural reverb of the space.",
     "Correct answer! \n\nDid you know: Noel Gallagher got the title when he misheard the name of the Pixies album Bossanova. He was watching a documentary about champagne at the time.",
     "Correct answer! \n\nDid you know: In 2014, Collins performed this at the Miami Country Day School in Miami, Florida, with his son's middle school band.",
-    "Correct answer! \n\nDid you know: Queen guitarist Brian May wrote this song, which is about a young man who comes to appreciate women of substantial girth. May told Mojo magazine October 2008: 'I wrote it with Fred in mind, as you do especially if you've got a great singer who likes fat bottomed girls… or boys.' ",
-    "Correct answer! \n\nDid you know: Worldwide, this is the best-selling single by an all-female group.",
-    "Correct answer! \n\nDid you know: The Verve fact.",
-    "Correct answer! \n\nDid you know: Bruce Hornsby fact.",
-    "Correct answer! \n\nDid you know: Bruce Springsteen fact.",
-    "Correct answer! \n\nDid you know: The Gorillaz fact.",
-    "Correct answer! \n\nDid you know: The Smiths fact.",
-    "Correct answer! \n\nDid you know: Notorious B.I.G fact.",
-    "Correct answer! \n\nDid you know: The Police fact.",
-    "Correct answer! \n\nDid you know: The ROlling Stones fact.",
-    "Correct answer! \n\nDid you know: Whitney Houston fact.",
-    "Correct answer! \n\nDid you know: The Bee Gees fact.",
-]
+    "Correct answer! \n\nDid you know: Queen guitarist Brian May wrote this song about a young man who comes to appreciate women of substantial girth. May said: 'I wrote it with Fred in mind, as you do especially if you've got a great singer who likes fat bottomed girls… or boys.' ",
+    "Correct answer! \n\nDid you know: Wannabe is the best-selling single by an all-female group worldwide.",
+    "Correct answer! \n\nDid you know: Because this song is sampled from The Rolling Stones song 'The Last Time', Mick Jagger and Keith Richards got composer credits along with Richard Ashcroft. Upset that he lost the royalties, Ashcroft said this was 'The best song Jagger and Richards have written in 20 years.' ",
+    "Correct answer! \n\nDid you know: The rapper Tupac Shakur used this as the basis for his song 'Changes', which is a look at racism and urban life from a black perspective.",
+    "Correct answer! \n\nDid you know: Springsteen played this for the first time on May 9. Rock critic Jon Landau was at the show and wrote in Boston's Real Paper: 'I saw rock and roll's future - and its name is Bruce Springsteen.' Landau eventually became Springsteen's manager.",
+    "Correct answer! \n\nDid you know: Seven million global sales of the Gorillaz album earned the group an entry in The Guinness Book of Records as the world's most successful virtual band.",
+    "Correct answer! \n\nDid you know: The Smiths had difficulty playing this song live. Guitarist Jonny Marr, in particular, struggled to recreate the guitar effect in concert. Bassist, Andy Rourke, called it 'the bane of The Smiths' live career.' ",
+    "Correct answer! \n\nDid you know: The baby pictured on the front cover of The Notorious B.I.G's album 'Ready To Die' only realized his picture was used when he was 8 years old and said he was paid $150 for the 2 hour shoot.",
+    "Correct answer! \n\nDid you know: This is one of the most misinterpreted songs ever. It is about an obsessive stalker, but it sounds like a love song. Some people even used it as their wedding song. The Police frontman Sting, wrote it after separating from his first wife, Frances Tomelty",
+    "Correct answer! \n\nDid you know: The Stones former manager Allen Klein owned the publishing rights to this song. In 1965, The Stones hired him and signed a deal they would later regret. The Stones signed over the publishing rights to all the songs they wrote up to 1969. Every time this is used, Klein's estate gets paid.",
+    "Correct answer! \n\nDid you know: Prince Harry and Meghan Markle chose this song as their first dance at the evening reception following their wedding.",
+    "Correct answer! \n\nDid you know: The Bee Gees recorded this in a French studio called the Chateau D'Herouville. Later, the group learned that many porno films were shot in those studios."
+];
 
 const player = new Audio();
 
@@ -216,7 +216,7 @@ function checkIncorrectGuess(evt){
 };
 
 function endOfGame(arr1){
-     if(arr1.length === 11){
+     if(arr1.length === 10){
       return true;
     }
 }
