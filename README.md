@@ -4,9 +4,9 @@ I wanted to make this game because it is a game I play with family on long drive
 
 ##Wireframe:
 
-Welcome Page []
-Guess page []
-Fact Page []
+Welcome Page assests/Images/Guess the Intro - Welcom screen.png
+Guess page assests/Images/Guess The Intro - Guess Screen.png
+Fact Page assests/Images/Guess The Intro - Fact screen.png
 End of Game page []
 
 
