@@ -7,11 +7,14 @@ I wanted to make this game because it is a game I play with family on long drive
 Welcome Page:
 ![welcome page](assests/Images/Guess_the_Intro-Welcome_screen.png)
 
-Guess page ![Guess page](assests/Images/Guess_The_Intro-Guess_Screen.png)
+Guess page:
+![Guess page](assests/Images/Guess_The_Intro-Guess_Screen.png)
 
-Fact Page ![fact page](assests/Images/Guess_The_Intro-Fact_screen.png)
+Fact Page:
+![Fact page](assests/Images/Guess_The_Intro-Fact_screen.png)
 
-End of Game page []
+End of Game page:
+![End of game page]()
 
 
 ## Technologies Used: 
@@ -31,6 +34,7 @@ follow this link to play the game [https://msartain.github.io/guess-the-intro/]
 
 ## Future Enhancements
 
-refactor the code
-Create a difficulty setting that provides harder songs/less time per song.
-Add a song title guess selection as well as artist guess to earn extra points.
+1. refactor the code.
+2. Change the 4 arrays into one array with objects.
+3. Create a difficulty setting that provides harder songs/less time per song.
+4. Add a song title guess selection as well as artist guess to earn extra points.

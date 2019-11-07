@@ -155,14 +155,21 @@ ul {
 }
 
 #restart {
-    width: 50%;
-    height: 50%;
+    margin-left: 30%;
+}
+
+button {
+    font-family: 'Reenie Beanie', cursive;
     font-size: 200%;
     background-color: transparent;
     padding: 10px;
     border-radius: 15%; 
     border-color: black;
-    font-family: 'Reenie Beanie', cursive;
+}
+
+button:hover{
+    background: #28597a;
+    opacity: 0.3;
 }
 
 
