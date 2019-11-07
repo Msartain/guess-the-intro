@@ -211,6 +211,7 @@ let startGame = document.getElementById('start-button');
 // let message = document.querySelector('ul');
 let playProceed = document.querySelector('.play-proceed');
 // let start = document.getElementById('start-game');
+let restartButton = document.createElement('button');
 
 let proceed = document.getElementById('proceed');
 let scoreBox = document.querySelector('h3');
@@ -328,7 +329,6 @@ function displayEndGameText(){
     playProceed.classList.add('hide');
     let restart = document.getElementById('restart');
     restart.classList.remove('hide');
-    let restartButton = document.createElement('button');
     restartButton.innerText = 'Restart Game';
     restart.appendChild(restartButton);
     restartButton.addEventListener('click', function(){
