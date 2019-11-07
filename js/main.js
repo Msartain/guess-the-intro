@@ -1,4 +1,5 @@
 // - - - - - - - const Variables - - - - - - -
+
 const songsMaster = [
     'assests/songs/Alanis_Morissette-Hand_In_My_Pocket.mp3',
     'assests/songs/Bill_Withers-Lovely_Day.mp3',
@@ -196,38 +197,32 @@ const player = new Audio();
 
 let score = 0;
 
-let currentSong, randomSong, songsIdx, wrongGuessButtons;
+let randomSong, songsIdx, wrongGuessButtons;
 
 let playIntroClicks = [];
 
 // - - - - - - - Cached Elements - - - - - - -
-// let restart = document.getElementById('restart');
-// let welcome = document.querySelector('ul')
-// let playProceed = document.querySelector('.play-proceed')
-let startGame = document.getElementById('start-button');
-// let start = document.getElementById('start-game');
-// let listArea = document.getElementById('list-area')
-// let messageFact = document.querySelector('ul');
-// let message = document.querySelector('ul');
-let playProceed = document.querySelector('.play-proceed');
-// let start = document.getElementById('start-game');
-let restartButton = document.createElement('button');
 
+let restart = document.getElementById('restart');
+let message = document.querySelector('ul');
+let start = document.getElementById('start-game');
+let startGame = document.getElementById('start-button');
+let playProceed = document.querySelector('.play-proceed');
+let restartButton = document.createElement('button');
 let proceed = document.getElementById('proceed');
 let scoreBox = document.querySelector('h3');
 let playIntro = document.getElementById('play-button');
+
 // - - - - - - - Event Listeners - - - - - - -
 
 playIntro.addEventListener('click', playSong);
+
 // - - - - - - - - Functions - - - - - - - - -
 
 
 function playSong(){
-    currentSong = randomSong;
-    if (preventMultiListen(playIntroClicks)){
-        return;
-    }    
-    let song = currentSong;
+    if (preventMultiListen(playIntroClicks))return;   
+    let song = randomSong;
     player.src = song;
     player.currentTime = 0; 
     player.play(song); 
@@ -251,7 +246,7 @@ proceed.addEventListener('click', function(){
         displayEndGameText();
         return ;
     }
-    document.getElementById('proceed').style.display = 'none';
+    proceed.style.display = 'none';
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
 
@@ -259,7 +254,7 @@ proceed.addEventListener('click', function(){
 
 function preventMultiListen(arr){
     if (arr === 1){
-        playIntro.style.backgroundColor = 'red';
+        playIntro.style.backgroundColor = 'rgba(188, 6, 6, 0.48)';
     }
     if(arr > 1){
         return true;
@@ -301,8 +296,7 @@ function checkCorrectGuess(evt){
     score++;
     scoreBox.innerText =`Score:${score}`;
     setTimeout(function(){
-        let messageFact = document.querySelector('ul');
-        messageFact.innerText = facts[songsIdx];
+        message.innerText = facts[songsIdx];
         document.getElementById('proceed').style.display = 'block';
         facts.splice(songsIdx, 1);    
     }, 600);
@@ -311,9 +305,8 @@ function checkCorrectGuess(evt){
 function checkIncorrectGuess(evt){
     evt.target.style.backgroundColor = 'red';
     setTimeout(function(){
-        let message = document.querySelector('ul');
         message.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
-        document.getElementById('proceed').style.display = 'block';
+        proceed.style.display = 'block';
         facts.splice(songsIdx, 1);
     }, 600);
 };
@@ -325,14 +318,11 @@ function endOfGame(arr1){
 };
 
 function displayEndGameText(){
-    let playProceed = document.querySelector('.play-proceed');
     playProceed.classList.add('hide');
-    let restart = document.getElementById('restart');
     restart.classList.remove('hide');
     restartButton.innerText = 'Restart Game';
     restart.appendChild(restartButton);
     restartButton.addEventListener('click', function(){
-        let start = document.getElementById('start-game');
         start.style.display = 'flex';
         score = 0;
         songsIdx = undefined;
@@ -347,29 +337,22 @@ function displayEndGameText(){
 
 
     if(score >= 9){
-        let message = document.querySelector('ul');
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. You're a musical genius!`;
        } else if(score >= 7){
-        let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. well done!`;
        } else if(score >= 5){
-        let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. That's ok but you can do better!`;
        } else if(score >= 3){
-        let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Come on! You must be able to do better than that!`;
        } else{
-        let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Oh dear! Better luck next time.`;
      };
   
 };
 
 function init(){
-    let restart = document.getElementById('restart');
     restart.classList.add('hide');
-    let welcome = document.querySelector('ul')
-    welcome.innerText = "\n\nWelcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button, followed by the Play Intro button to begin! Good Luck!";
+    message.innerText = "\n\nWelcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button, followed by the Play Intro button to begin! Good Luck!";
     playProceed.classList.add('hide')
     startGame.addEventListener('click', startGameButton);
 };
@@ -385,7 +368,6 @@ function startGameButton(){
     playIntroClicks = [];
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
-    let start = document.getElementById('start-game');
     start.style.display = 'none'
     playProceed.classList.remove('hide');
     document.getElementById('proceed').style.display = 'none';
