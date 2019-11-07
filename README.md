@@ -4,9 +4,13 @@ I wanted to make this game because it is a game I play with family on long drive
 
 ## Wireframe:
 
-Welcome Page ![welcome page](assests/Images/Guess the Intro - Welcom screen.png)
-Guess page ![Guess page](assests/Images/Guess The Intro - Guess Screen.png)
-Fact Page ![fact page](assests/Images/Guess The Intro - Fact screen.png)
+Welcome Page:
+![welcome page](assests/Images/Guess_the_Intro-Welcome_screen.png)
+
+Guess page ![Guess page](assests/Images/Guess_The_Intro-Guess_Screen.png)
+
+Fact Page ![fact page](assests/Images/Guess_The_Intro-Fact_screen.png)
+
 End of Game page []
 
 
