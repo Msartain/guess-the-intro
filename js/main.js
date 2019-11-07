@@ -116,7 +116,6 @@ playIntro.addEventListener('click', playSong);
 // - - - - - - - - Functions - - - - - - - - -
 
 
-//plays loaded song for 5 seconds.
 function playSong(){
     currentSong = randomSong;
     if (preventMultiListen(playIntroClicks)){
@@ -133,14 +132,12 @@ function playSong(){
     })
 };
 
-//selects a song at random from 'songs' array.
 function randomSongSelect(arrSongs){
     randomSong = arrSongs[Math.floor(Math.random() * songs.length)];
     songsIdx = arrSongs.indexOf(randomSong);
     arrSongs.splice(songsIdx, 1);
 };
 
-//loads random song onto player.
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
     playIntro.style.backgroundColor = 'transparent';
@@ -152,7 +149,6 @@ proceed.addEventListener('click', function(){
     createGuessButtons(correctGuesses,wrongGuesses);
 });
 
-//prevents user from listening to each intro more than 3 times.
 function preventMultiListen(arr){
     if (arr === 1){
         playIntro.style.backgroundColor = 'red';
@@ -227,7 +223,6 @@ function endOfGame(arr1){
 function displayEndGameText(){
     let playProceed = document.querySelector('.play-proceed')
     playProceed.classList.add('hide')
-    // disable or remove the playsong and next song buttons
     // create a reset button or display the rest button
     if(score >= 9){
         let message = document.querySelector('ul');
