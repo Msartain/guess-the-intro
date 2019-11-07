@@ -95,6 +95,7 @@ const factsMaster = [
    "Correct answer! \n\nDid you know: Prince Harry and Meghan Markle chose this song as their first dance at the evening reception following their wedding.",
    "Correct answer! \n\nDid you know: The Bee Gees recorded this in a French studio called the Chateau D'Herouville. Later, the group learned that many porno films were shot in those studios."
 ];
+
 let songs = [
      'assests/songs/Alanis_Morissette-Hand_In_My_Pocket.mp3',
      'assests/songs/Bill_Withers-Lovely_Day.mp3',
@@ -229,8 +230,8 @@ function playSong(){
     setInterval(function(){
         if(player.currentTime > 5){
             player.pause();
-        }
-    })
+        };
+    });
 };
 
 function randomSongSelect(arrSongs){
@@ -242,11 +243,15 @@ function randomSongSelect(arrSongs){
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
     playIntro.style.backgroundColor = 'transparent';
+
+    // playIntro.style.backgroundColor = '#28597a';
+    // playIntro.style.opacity = '0.3';
     if (endOfGame(songs)){
         displayEndGameText();
         return ;
-    }
+    };
     proceed.style.display = 'none';
+    playIntro.style.display = 'flex';
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
 
@@ -255,27 +260,27 @@ proceed.addEventListener('click', function(){
 function preventMultiListen(arr){
     if (arr === 1){
         playIntro.style.backgroundColor = 'rgba(188, 6, 6, 0.48)';
-    }
+    };
     if(arr > 1){
         return true;
     } else {
-        playIntroClicks++
-        return false
-    }
+        playIntroClicks++;
+        return false;
+    };
 };
 
 function createGuessButtons(arrCorrect, arrWrong){
     let buttons = [];
-    listArea = document.getElementById('list-area')
+    listArea = document.getElementById('list-area');
     listArea.innerHTML = '';
-    correctGuessButton = document.createElement('div')
+    correctGuessButton = document.createElement('div');
     correctGuessButton.className += 'button ';
     correctGuessButton.addEventListener('click', checkCorrectGuess);
     correctGuessButton.innerHTML = arrCorrect[songsIdx];
     buttons.push(correctGuessButton);
     arrCorrect.splice(songsIdx, 1);
     let wrongChoices = [];
-    wrongChoices.push(...arrWrong[songsIdx])
+    wrongChoices.push(...arrWrong[songsIdx]);
     for(var i = 0; i < wrongChoices.length; i ++) {
         wrongGuessButtons = document.createElement('div');
         wrongGuessButtons.className += 'button ';
@@ -299,6 +304,7 @@ function checkCorrectGuess(evt){
         message.innerText = facts[songsIdx];
         document.getElementById('proceed').style.display = 'block';
         facts.splice(songsIdx, 1);    
+        playIntro.style.display = 'none';
     }, 600);
 };
 
@@ -308,6 +314,7 @@ function checkIncorrectGuess(evt){
         message.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
         proceed.style.display = 'block';
         facts.splice(songsIdx, 1);
+        playIntro.style.display = 'none';
     }, 600);
 };
 
@@ -353,25 +360,26 @@ function displayEndGameText(){
 function init(){
     restart.classList.add('hide');
     message.innerText = "\n\nWelcome to Who's That! A game to test your musical knowledge of iconic tracks.\n \n The rules are simple, you get 2 chances to play the intro of the selected track, then pick your guess from the list. \n  \n When you're ready, turn your volume up and hit the start button, followed by the Play Intro button to begin! Good Luck!";
-    playProceed.classList.add('hide')
+    playProceed.classList.add('hide');
     startGame.addEventListener('click', startGameButton);
 };
 
 function resetArrays(){
-    songs = songsMaster.map(i => i)
+    songs = songsMaster.map(i => i);
     correctGuesses = correctGuessesMaster.map(i => i);
     wrongGuesses = wrongGuessesMaster.map(i => i);
     facts = factsMaster.map(i => i);
-}
+};
 
 function startGameButton(){
     playIntroClicks = [];
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
-    start.style.display = 'none'
+    start.style.display = 'none';
+    playIntro.style.display = 'flex';
     playProceed.classList.remove('hide');
     document.getElementById('proceed').style.display = 'none';
-    startGame.removeEventListener('click', startGameButton)
-}
+    startGame.removeEventListener('click', startGameButton);
+};
 
 init();

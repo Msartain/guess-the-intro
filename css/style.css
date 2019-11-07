@@ -140,6 +140,11 @@ ul {
     font-family: 'Reenie Beanie', cursive;
 
 }
+
+.playButtonFlash {
+    background-color: rgba(188, 6, 6, 0.48);
+}
+
 #play-button:hover {
     background: #28597a;
     opacity: 0.3;
