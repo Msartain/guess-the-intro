@@ -10,8 +10,18 @@ const songs = [
      'assests/songs/Oasis-Champagne_Supernova.mp3',
      'assests/songs/Phil_Collins-In_the_Air_Tonight.mp3',
      'assests/songs/Queen-Fat_Bottomed_Girls.mp3',
-     'assests/songs/Spice_Girls-Wannabe.mp3' 
-];
+     'assests/songs/Spice_Girls-Wannabe.mp3',
+     'assests/songs/Bitter Sweet Symphony.mp3',
+     'assests/songs/Bruce Hornsby & The Range - The Way It Is.mp3',
+     'assests/songs/Bruce_Springsteen-Born_To_Run.mp3',
+     'assests/songs/The Gorillaz - Clint Eastwood.mp3',
+     'assests/songs/How Soon Is Now.mp3',
+     'assests/songs/Notorious b.i.g- big poppa.mp3',
+     'assests/songs/The Police - Every Breath You Take.mp3',
+     'assests/songs/The Rolling Stones - Paint It, Black.mp3',
+     'assests/songs/Whitney Houston - I Wanna Dance With Somebody (Legendado).mp3',
+     'assests/songs/Bee Gees - Stayin Alive (1977).mp3'
+    ]
 
 const correctGuesses = [
     'Alanis Morissette',
@@ -24,7 +34,17 @@ const correctGuesses = [
     'Oasis', 
     'Phil Collins', 
     'Queen', 
-    'The Spice Girls'
+    'The Spice Girls',
+    'The Verve',
+    'Bruce Hornsby',
+    'Bruce Springsteen',
+    'The Gorillaz',
+    'The Smiths',
+    'Notorious B.I.G',
+    'The Police',
+    'The Rolling Stones',
+    'Whitney Houston',
+    'The Bee Gees'
 ];
 
 const wrongGuesses = [
@@ -38,7 +58,17 @@ const wrongGuesses = [
     ['Blur', 'Arctic Monkeys', 'Radiohead'],
     ['Sting', 'Eric Clapton', 'Elton John'],
     ['The Beatles', 'David Bowie', 'AC/DC'],
-    ["Destiny's Child", 'Britney Spears', 'Christina Aguilera']
+    ["Destiny's Child", 'Britney Spears', 'Christina Aguilera'],
+    ['Radiohead', 'The Smiths', 'The Cure'],
+    ['P Diddy', 'Don Henley', 'The Beach Boys'],
+    ['The Rolling Stones', 'Matt Sartain', 'The Ramones'],
+    ['Blur', 'D12', 'Franz Ferdinand'],
+    ['New Order', 'Joy Division', 'Depeche Mode'],
+    ['Dr.Dre', 'P.Diddy', 'Fat Man Scoop'],
+    ['Dire Straits', 'Duran Duran', 'Genesis'],
+    ['AC/DC', 'The Clash', 'The Beatles'],
+    ['Tina Turner', 'Amy Winehouse', 'Mariah Carey'],
+    ['The Monkeys', 'Abba', 'The Beach Boys']
 ];        
 
 const facts = [
@@ -52,7 +82,17 @@ const facts = [
     "Correct answer! \n\nDid you know: Noel Gallagher got the title when he misheard the name of the Pixies album Bossanova. He was watching a documentary about champagne at the time.",
     "Correct answer! \n\nDid you know: In 2014, Collins performed this at the Miami Country Day School in Miami, Florida, with his son's middle school band.",
     "Correct answer! \n\nDid you know: Queen guitarist Brian May wrote this song, which is about a young man who comes to appreciate women of substantial girth. May told Mojo magazine October 2008: 'I wrote it with Fred in mind, as you do especially if you've got a great singer who likes fat bottomed girls… or boys.' ",
-    "Correct answer! \n\nDid you know: Worldwide, this is the best-selling single by an all-female group."
+    "Correct answer! \n\nDid you know: Worldwide, this is the best-selling single by an all-female group.",
+    "Correct answer! \n\nDid you know: The Verve fact.",
+    "Correct answer! \n\nDid you know: Bruce Hornsby fact.",
+    "Correct answer! \n\nDid you know: Bruce Springsteen fact.",
+    "Correct answer! \n\nDid you know: The Gorillaz fact.",
+    "Correct answer! \n\nDid you know: The Smiths fact.",
+    "Correct answer! \n\nDid you know: Notorious B.I.G fact.",
+    "Correct answer! \n\nDid you know: The Police fact.",
+    "Correct answer! \n\nDid you know: The ROlling Stones fact.",
+    "Correct answer! \n\nDid you know: Whitney Houston fact.",
+    "Correct answer! \n\nDid you know: The Bee Gees fact.",
 ]
 
 const player = new Audio();
@@ -165,7 +205,7 @@ function checkCorrectGuess(evt){
         let messageFact = document.querySelector('ul');
         messageFact.innerText = facts[songsIdx];
         facts.splice(songsIdx, 1);
-    }, 1200);
+    }, 900);
     
 };
 
@@ -175,11 +215,11 @@ function checkIncorrectGuess(evt){
         let message = document.querySelector('ul');
         message.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
         facts.splice(songsIdx, 1);
-    }, 1200);
+    }, 900);
 };
 
 function endOfGame(arr1){
-     if(arr1.length === 0){
+     if(arr1.length === 11){
       return true;
     }
 }
