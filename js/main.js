@@ -145,8 +145,10 @@ proceed.addEventListener('click', function(){
         displayEndGameText();
         return ;
     }
+    facts.splice(songsIdx, 1);
     randomSongSelect(songs, correctGuesses);
     createGuessButtons(correctGuesses,wrongGuesses);
+
 });
 
 function preventMultiListen(arr){
@@ -163,7 +165,6 @@ function preventMultiListen(arr){
 
 function createGuessButtons(arrCorrect, arrWrong){
     let buttons = [];
-    // if(endOfGame(songs))return;
     listArea = document.getElementById('list-area')
     listArea.innerHTML = '';
     correctGuessButton = document.createElement('div')
@@ -200,7 +201,7 @@ function checkCorrectGuess(evt){
     setTimeout(function(){
         let messageFact = document.querySelector('ul');
         messageFact.innerText = facts[songsIdx];
-        facts.splice(songsIdx, 1);
+        // facts.splice(songsIdx, 1);
     }, 900);
     
 };
@@ -210,7 +211,7 @@ function checkIncorrectGuess(evt){
     setTimeout(function(){
         let message = document.querySelector('ul');
         message.innerText = "That's incorrect!\n\n Hit Next Song to continue.";
-        facts.splice(songsIdx, 1);
+        // facts.splice(songsIdx, 1);
     }, 900);
 };
 
@@ -223,6 +224,12 @@ function endOfGame(arr1){
 function displayEndGameText(){
     let playProceed = document.querySelector('.play-proceed')
     playProceed.classList.add('hide')
+    let restart = document.getElementById('restart');
+    // let restartButton = document.createElement('button');
+    // restartButton.innerText = 'Restart Game';
+    // restart.appendChild(restartButton);
+    // restart.addEventListener('click',init);
+
     // create a reset button or display the rest button
     if(score >= 9){
         let message = document.querySelector('ul');
@@ -239,15 +246,8 @@ function displayEndGameText(){
        } else{
         let message = document.querySelector('ul');   
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Oh dear! Better luck next time.`;
-    } 
-    let startGame = document.getElementById('start-button');
-    startGame.classList.add('hide');
-    startGame.addEventListener('click', function(){
-        playIntroClicks = [];
-        randomSongSelect(songs, correctGuesses);
-        createGuessButtons(correctGuesses,wrongGuesses);
-        document.getElementById('start-game').remove();
-    })
+     } 
+  
 }
 
 function init(){

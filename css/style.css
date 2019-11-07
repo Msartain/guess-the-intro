@@ -154,6 +154,17 @@ ul {
     width: 70%;
 }
 
+#restart {
+    width: 50%;
+    height: 50%;
+    font-size: 200%;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 15%; 
+    border-color: black;
+    font-family: 'Reenie Beanie', cursive;
+}
+
 
 .button {
     background: #37586A;
