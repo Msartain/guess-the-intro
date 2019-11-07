@@ -243,9 +243,6 @@ function randomSongSelect(arrSongs){
 proceed.addEventListener('click', function(){
     playIntroClicks = [];
     playIntro.style.backgroundColor = 'transparent';
-
-    // playIntro.style.backgroundColor = '#28597a';
-    // playIntro.style.opacity = '0.3';
     if (endOfGame(songs)){
         displayEndGameText();
         return ;
