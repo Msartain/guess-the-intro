@@ -110,13 +110,6 @@ ul {
     font-family: 'Reenie Beanie', cursive;
 }
 
-
-#start-button:hover {
-    background: #28597a;
-    opacity: 0.3;
-}
-
-
 #proceed {
     font-size: 200%;
     background-color: transparent;
@@ -126,11 +119,6 @@ ul {
     font-family: 'Reenie Beanie', cursive;
 }
 
-#proceed:hover {
-    background: #28597a;
-    opacity: 0.3;
-    }
-
 #play-button {
     font-size: 200%;
     background-color: transparent;
@@ -138,17 +126,11 @@ ul {
     border-radius: 15%; 
     border-color: black;
     font-family: 'Reenie Beanie', cursive;
-
 }
 
 .playButtonFlash {
     background-color: rgba(188, 6, 6, 0.48);
 }
-
-#play-button:hover {
-    background: #28597a;
-    opacity: 0.3;
-    }
 
 .guessbuttons {
     display: flex;
@@ -173,7 +155,6 @@ button {
 }
 
 button:hover{
-    background: #28597a;
     opacity: 0.3;
 }
 
@@ -185,10 +166,10 @@ button:hover{
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 15px;
-    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-    box-shadow: rgba(0,0,0,1) 0 1px 0;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 3px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 3px 0;
+    box-shadow: rgba(0,0,0,1) 0 3px 0;
+    text-shadow: rgba(0,0,0,.4) 0 3px 0;
     color: white;
     font-size: 40px;
     font-family: 'Reenie Beanie', cursive;
@@ -198,6 +179,7 @@ button:hover{
     text-align: center;
     margin: 2%;
     }
+
  .button:hover {
     background: #28597a;
     color: black;

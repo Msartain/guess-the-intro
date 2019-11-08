@@ -222,7 +222,9 @@ playIntro.addEventListener('click', playSong);
 
 
 function playSong(){
-    if (preventMultiListen(playIntroClicks))return;   
+    if (preventMultiListen(playIntroClicks)){
+        return;
+    };   
     let song = randomSong;
     player.src = song;
     player.currentTime = 0; 
@@ -287,9 +289,11 @@ function createGuessButtons(arrCorrect, arrWrong){
         buttons.push(wrongGuessButtons);
         };
     arrWrong.splice(songsIdx, 1);     
-    buttons = buttons.sort(function(a,b){return 0.5 - Math.random() });
+    buttons = buttons.sort(function(a,b){
+        return 0.5 - Math.random() 
+    });
     buttons.forEach(function(button){
-    listArea.appendChild(button);
+        listArea.appendChild(button);
     });
 };  
 
@@ -316,8 +320,8 @@ function checkIncorrectGuess(evt){
 };
 
 function endOfGame(arr1){
-     if(arr1.length === 11){
-      return true;
+    if(arr1.length === 11){
+        return true;
     };
 };
 
@@ -338,20 +342,17 @@ function displayEndGameText(){
         restartButton.parentNode.removeChild(restartButton);
         init();
     });
-
-
     if(score >= 9){
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. You're a musical genius!`;
-       } else if(score >= 7){
+        } else if(score >= 7){
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. well done!`;
-       } else if(score >= 5){
+        } else if(score >= 5){
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. That's ok but you can do better!`;
-       } else if(score >= 3){
+        } else if(score >= 3){
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Come on! You must be able to do better than that!`;
-       } else{
+        } else {
         message.innerText = `End of Game! \n\n Your score was ${score} out of 10. Oh dear! Better luck next time.`;
-     };
-  
+    };
 };
 
 function init(){
