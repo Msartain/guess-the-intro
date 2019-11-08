@@ -291,7 +291,7 @@ function createGuessButtons(arrCorrect, arrWrong){
     buttons = buttons.sort(function(a,b){
         return 0.5 - Math.random() 
     });
-    buttons.forEach(function(button){
+    buttons.forEach(function(button){ 
         listArea.appendChild(button);
     });
 };  
