@@ -4,7 +4,7 @@ I wanted to make this game because it's something I play with my wife on long dr
 
 ## Wireframe:
 
-Original wirefram plan:
+Original wireframe plan:
 ![Welcome page](assests/Images/Wireframe_welcome_screen.jpg)
 ![game screen](assests/Images/Wireframe_game_screen.jpg)
 

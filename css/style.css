@@ -28,7 +28,6 @@ body {
     height: 15%;
     background-color: #6B6B6B;
     background: rgba(255,255,255,0.5);
-
 }
 
 h1 {
@@ -40,13 +39,13 @@ h1 {
     width: 40%;
     height: 10%;
     padding-left: 3%;
-
 }
 
 ul {
     font-family: 'Reenie Beanie', cursive;
     font-size: 5vh;
 }
+
 .play-proceed{
     display: flex;
     justify-content: center;
@@ -63,7 +62,6 @@ ul {
     width: 25%;
     margin-left: 20%;
     margin-top: 3%;
-
 }
 
 #start-button {
@@ -76,18 +74,16 @@ ul {
     border-color: black;
     font-family: 'Reenie Beanie', cursive;
 }
-/* we can use this as a temporary class to toggle on and off */
+
 .hide { 
     display : none
 }
-
 
 .buttons {
     display: flex;
     justify-content: space-around;
     width: 35%;
     height: 35%;
-    
 }
 
 .renderbuttons{
@@ -97,7 +93,6 @@ ul {
     align-items: flex-end;
     width: 50%;
     height: 60%;
-
 }
 
 #score {
@@ -157,7 +152,6 @@ button {
 button:hover{
     opacity: 0.3;
 }
-
 
 .button {
     background: #37586A;
