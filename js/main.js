@@ -225,10 +225,9 @@ function playSong(){
     if (preventMultiListen(playIntroClicks)){
         return;
     };   
-    let song = randomSong;
-    player.src = song;
+    player.src = randomSong;
     player.currentTime = 0; 
-    player.play(song); 
+    player.play(randomSong); 
     setInterval(function(){
         if(player.currentTime > 5){
             player.pause();

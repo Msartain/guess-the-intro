@@ -38,3 +38,4 @@ follow this link to play the game [https://msartain.github.io/guess-the-intro/]
 1. Change the 4 arrays into one array with objects.
 2. Create a difficulty setting that provides harder songs/less time per song.
 3. Add a song title guess selection as well as artist guess to earn extra points.
+4. Add a media query to enable the user to play on any device.
