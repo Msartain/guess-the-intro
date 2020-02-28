@@ -35,7 +35,7 @@ h1 {
     justify-content: flex-start;
     align-items: center;
     font-family: 'Reenie Beanie', cursive;
-    font-size: 10vh;
+    font-size: 500%;
     width: 40%;
     height: 10%;
     padding-left: 3%;
@@ -43,7 +43,7 @@ h1 {
 
 ul {
     font-family: 'Reenie Beanie', cursive;
-    font-size: 5vh;
+    font-size: 200%;
 }
 
 .play-proceed{
@@ -87,6 +87,7 @@ ul {
 }
 
 .renderbuttons{
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -98,7 +99,7 @@ ul {
 #score {
     display: flex;
     color: black;
-    font-size: 10vh;
+    font-size: 500%;
     width: 20%;
     height: 20%;
     margin: 10px;
@@ -179,3 +180,12 @@ button:hover{
     color: black;
     }
  
+/* 
+    @media only screen and (max-width: 1414px){
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    } */
